@@ -21,10 +21,12 @@ driver.find_element('xpath','//input[@name="customer.address.city"]').send_keys(
 driver.find_element('xpath','//input[@name="customer.address.state"]').send_keys("Karnataka")
 driver.find_element('xpath','//input[@name="customer.address.zipCode"]').send_keys("500106")
 driver.find_element('xpath','//input[@name="customer.phoneNumber"]').send_keys("9456789054")
+driver.find_element('xpath','//input[@name="customer.ssn"]').send_keys("123456789")
 driver.find_element('xpath','//input[@id="customer.username"]').send_keys("SKMohla")
 driver.find_element('xpath','//input[@id="customer.password"]').send_keys("ApneKaamSeKaam123")
 driver.find_element('xpath','//input[@id="repeatedPassword"]').send_keys("ApneKaamSeKaam123")
-
+driver.find_element('xpath','//input[@value="Register"]').click()
+time.sleep(2)
 
 # Login
 driver.find_element['xpath','//input[@name="username"]'].send_keys("SKMohla")
