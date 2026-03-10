@@ -33,3 +33,7 @@ driver.find_element('xpath','//input[@name="username"]').send_keys("SKMohla")
 driver.find_element('xpath','//input[@name="password"]').send_keys("ApneKaamSeKaam123")
 driver.find_element('xpath','//input[@value="Log In"]').click()
 time.sleep(2)
+
+#Transfer Funds
+driver.find_element('xpath','//a[text()="Transfer Funds"]').click()
+driver.find_element('xpath','//input[@id="amount"]').send_keys("100")
