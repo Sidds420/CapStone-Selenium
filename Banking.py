@@ -1,8 +1,9 @@
+import time
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
-import time
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as ec
 
 opts = webdriver.ChromeOptions()
 opts.add_experimental_option("detach",True)
@@ -37,27 +38,28 @@ driver.find_element('xpath','//input[@value="Log In"]').click()
 time.sleep(2)
 
 #OpenNewAccount
-driver.find_element('xpath','//a[text()="Open New Account"]').click()
+driver.find_element('xpath','//a[contains(text(),"Open New Account")]').click()
 acc_type = driver.find_element('xpath','//select[@id="type"]')
 acc_select = Select(acc_type)
 acc_select.select_by_visible_text("SAVINGS")
 driver.find_element('xpath','//input[@value="Open New Account"]').click()
 
 #Transfer Funds
-driver.find_element('xpath','//a[text()="Transfer Funds"]').click()
-driver.find_element('xpath','//input[@id="amount"]').send_keys("100")
+driver.find_element('xpath','//a[contains(text(),"Transfer Funds")]').click()
+driver.find_element('xpath','//input[@id="amount"]').send_keys("5")
+driver.find_element('xpath','//select[@id="toAccountId"]').click()
+wait.until(ec.presence_of_element_located(('xpath','//select[@id="toAccountId"]/option[2]')))
+driver.find_element('xpath','//select[@id="toAccountId"]/option[2]').click()
+driver.find_element('xpath','//input[@type="submit"]').click()
 
-#From acc selection
-# wait.until(
-#     EC.presence_of_element_located(
-#         ('xpath', '//select[@id="fromAccountId"]/option')
-#     )
-# )
-# from_acc = driver.find_element('xpath','//select[@id="fromAccountId"]')
-# from_select = Select(from_acc)
-# from_select.select_by_value("43980")
+try:
+    wait.until(ec.visibility_of_element_located(('xpath', '//h1[contains(text(),"Transfer Complete!")]')))
+    print("Fund transfer complete!")
+except:
+    print("Fund transfer failed")
 
-#To account selection
-# to_acc = driver.find_element('xpath','//select[@id="toAccountId"]')
-# to_acc_select=Select(to_acc)
-# to_acc_select.select_by_visible_text("43980")
+#Account Overview
+driver.find_element('xpath','//a[text()="Accounts Overview"]').click()
+
+#Account LogOut
+driver.find_element('xpath','//a[text()="Log Out"]').click()
