@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support.select import Select
 import time
 
 opts = webdriver.ChromeOptions()
@@ -33,6 +34,13 @@ driver.find_element('xpath','//input[@name="username"]').send_keys("SKMohla")
 driver.find_element('xpath','//input[@name="password"]').send_keys("ApneKaamSeKaam123")
 driver.find_element('xpath','//input[@value="Log In"]').click()
 time.sleep(2)
+
+#OpenNewAccount
+driver.find_element('xpath','//a[text()="Open New Account"]').click()
+acc_type = driver.find_element('xpath','//select[@id="type"]')
+acc_select = Select(acc_type)
+acc_select.select_by_visible_text("SAVINGS")
+driver.find_element('xpath','//input[@value="Open New Account"]').click()
 
 #Transfer Funds
 driver.find_element('xpath','//a[text()="Transfer Funds"]').click()
