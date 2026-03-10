@@ -29,7 +29,7 @@ time.sleep(2)
 # time.sleep(2)
 
 # Login
-driver.find_element['xpath','//input[@name="username"]'].send_keys("SKMohla")
-driver.find_element['xpath','//input[@name="password"]'].send_keys("ApneKaamSeKaam123")
-driver.find_element['xpath','//input[@value="Log In"]'].click()
+driver.find_element('xpath','//input[@name="username"]').send_keys("SKMohla")
+driver.find_element('xpath','//input[@name="password"]').send_keys("ApneKaamSeKaam123")
+driver.find_element('xpath','//input[@value="Log In"]').click()
 time.sleep(2)
