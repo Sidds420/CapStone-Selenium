@@ -21,8 +21,8 @@ driver.find_element('xpath','//input[@name="customer.address.city"]').send_keys(
 driver.find_element('xpath','//input[@name="customer.address.state"]').send_keys("Karnataka")
 driver.find_element('xpath','//input[@name="customer.address.zipCode"]').send_keys("500106")
 driver.find_element('xpath','//input[@name="customer.phoneNumber"]').send_keys("9456789054")
-
-
+driver.find_element('xpath','//input[@name="customer.ssn"]').send_keys("123456789")
+driver.find_element('xpath','//input[@value="Register"]').click()
 
 
 # Login
