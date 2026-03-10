@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
 import time
 
@@ -45,3 +46,18 @@ driver.find_element('xpath','//input[@value="Open New Account"]').click()
 #Transfer Funds
 driver.find_element('xpath','//a[text()="Transfer Funds"]').click()
 driver.find_element('xpath','//input[@id="amount"]').send_keys("100")
+
+#From acc selection
+# wait.until(
+#     EC.presence_of_element_located(
+#         ('xpath', '//select[@id="fromAccountId"]/option')
+#     )
+# )
+# from_acc = driver.find_element('xpath','//select[@id="fromAccountId"]')
+# from_select = Select(from_acc)
+# from_select.select_by_value("43980")
+
+#To account selection
+# to_acc = driver.find_element('xpath','//select[@id="toAccountId"]')
+# to_acc_select=Select(to_acc)
+# to_acc_select.select_by_visible_text("43980")
